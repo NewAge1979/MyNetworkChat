@@ -10,10 +10,10 @@ import java.time.format.DateTimeFormatter;
 
 public class LoggerImpl implements Logger {
     private static Logger instance = null;
-    private final Configuration config = Configuration.getInstance();
-    private String logFile;
+    private final String logFile;
 
     private LoggerImpl() {
+        Configuration config = Configuration.getInstance();
         this.logFile = config.getLogFile();
     }
 

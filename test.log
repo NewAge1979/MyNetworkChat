@@ -92,3 +92,33 @@ kolobok
 [2023/11/07 09:17:58] - [INFO]: До новых встреч.
 [2023/11/07 09:17:58] - [INFO]: User User_1 has leaved the chat.
 [2023/11/07 09:17:58] - [INFO]: Users in the chat: 0
+[2023/11/07 23:17:08] - [INFO]: Server start.
+[2023/11/07 23:17:08] - [INFO]: Server started (portNumber = 8888).
+[2023/11/07 23:17:20] - [INFO]: Client start.
+[2023/11/07 23:17:20] - [INFO]: A new user User_1 has entered the chat.
+[2023/11/07 23:17:20] - [INFO]: Users in the chat: 1
+[2023/11/07 23:17:20] - [INFO]: Administrator say: Приветствуем нового участника чата: User_1.
+[2023/11/07 23:17:20] - [INFO]: Administrator say: Клиентов в чате: 1
+[2023/11/07 23:17:20] - [INFO]: Добро пожаловать в чат!
+Команды:
+/help - помощь;
+/rename - сменить имя;
+/users - вывести список пользователей;
+/sendone - отправить сообщение;
+/sendall - отправить сообщение всем;
+/exit - выход.
+Для вывода справки по команде введите: /help [команда]. Например: /help /rename
+[2023/11/07 23:17:40] - [INFO]: User_1 say: /users
+[2023/11/07 23:17:40] - [INFO]: Список пользователей:
+User_1
+[2023/11/07 23:17:50] - [INFO]: User_1 say: /rename kolobok
+[2023/11/07 23:17:50] - [INFO]: Имя пользователя успешно изменено.
+[2023/11/07 23:17:56] - [INFO]: User_1 say: /users
+[2023/11/07 23:17:56] - [INFO]: Список пользователей:
+kolobok
+[2023/11/07 23:18:16] - [INFO]: User_1 say: /sendone kolobok Hello World!!!
+[2023/11/07 23:18:16] - [INFO]: kolobok ask: Hello World!!!
+[2023/11/07 23:18:22] - [INFO]: User_1 say: /exit
+[2023/11/07 23:18:22] - [INFO]: До новых встреч.
+[2023/11/07 23:18:22] - [INFO]: User User_1 has leaved the chat.
+[2023/11/07 23:18:22] - [INFO]: Users in the chat: 0

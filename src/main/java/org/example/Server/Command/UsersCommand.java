@@ -5,6 +5,6 @@ public class UsersCommand implements Command {
 
     @Override
     public void execute(CommandParameters parameter) {
-        parameter.getCurConnect().sendMsg(parameter.getCurConnect().getServer().getClients());
+        parameter.curConnect().sendMsg(parameter.curConnect().getServer().getClients());
     }
 }

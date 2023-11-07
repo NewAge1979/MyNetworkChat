@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class Server {
     private final Logger logger = LoggerImpl.getInstance();
-    private Map<String, Connection> clients = Collections.synchronizedMap(new HashMap<>());
+    private final Map<String, Connection> clients = Collections.synchronizedMap(new HashMap<>());
 
     public Server(int portNumber) {
         Socket clientSocket = null;
@@ -31,10 +31,12 @@ public class Server {
             logger.log(LogState.ERROR, e.getMessage());
         } finally {
             try {
+                assert clientSocket != null;
                 clientSocket.close();
                 logger.log(LogState.INFO, "Server finished.");
+                assert serverSocket != null;
                 serverSocket.close();
-            } catch (IOException e) {
+            } catch (NullPointerException|IOException e) {
                 logger.log(LogState.ERROR, e.getMessage());
             }
         }

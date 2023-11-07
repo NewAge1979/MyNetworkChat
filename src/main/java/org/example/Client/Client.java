@@ -30,7 +30,7 @@ public class Client {
             while (noExit) {
                 String clientMessage = input.nextLine();
                 outMessage.println(clientMessage);
-                if (clientMessage.toLowerCase().equals("/exit")) {
+                if (clientMessage.equalsIgnoreCase("/exit")) {
                     noExit = false;
                 }
             }

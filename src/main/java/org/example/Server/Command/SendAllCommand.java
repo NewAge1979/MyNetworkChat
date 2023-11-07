@@ -5,9 +5,9 @@ public class SendAllCommand implements Command {
 
     @Override
     public void execute(CommandParameters parameter) {
-        parameter.getCurConnect().getServer().sendMessageAllClients(
-                parameter.getCurConnect(),
-                parameter.getMessage()
+        parameter.curConnect().getServer().sendMessageAllClients(
+                parameter.curConnect(),
+                parameter.message()
         );
     }
 }

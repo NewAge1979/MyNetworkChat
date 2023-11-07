@@ -1,10 +1,9 @@
 package org.example.Server;
 
-import org.example.Server.Command.Command;
-import org.example.Server.Command.CommandContainer;
 import org.example.Logger.LogState;
 import org.example.Logger.Logger;
 import org.example.Logger.LoggerImpl;
+import org.example.Server.Command.CommandContainer;
 import org.example.Server.Command.CommandName;
 import org.example.Server.Command.CommandParameters;
 
@@ -15,13 +14,12 @@ import java.util.Scanner;
 
 public class Connection implements Runnable {
     private Server server;
-    private Socket clientSocket = null;
     private static int clientsCount = 0;
     private Scanner inMessage;
     private PrintWriter outMessage;
-    private Logger logger = LoggerImpl.getInstance();
-    private static String COMMAND_PREFIX = "/";
-    private static String CONN_PREFIX = "User";
+    private final Logger logger = LoggerImpl.getInstance();
+    private static final String COMMAND_PREFIX = "/";
+    private static final String CONN_PREFIX = "User";
     private String connName;
     private String userName;
     private final CommandContainer commandContainer = new CommandContainer();
@@ -29,7 +27,6 @@ public class Connection implements Runnable {
     public Connection(Socket socket, Server server) {
         try {
             this.server = server;
-            this.clientSocket = socket;
             this.inMessage = new Scanner(socket.getInputStream());
             this.outMessage = new PrintWriter(socket.getOutputStream());
             clientsCount++;
@@ -43,14 +40,11 @@ public class Connection implements Runnable {
     @Override
     public void run() {
         try {
-            while (true) {
-                logger.log(LogState.INFO, String.format("A new user %s has entered the chat.", connName));
-                logger.log(LogState.INFO, String.format("Users in the chat: %d", clientsCount));
-                server.sendMessageAllClients(null,String.format("Приветствуем нового участника чата: %s.", connName));
-                server.sendMessageAllClients(null, String.format("Клиентов в чате: %d", clientsCount));
-                commandContainer.retrieveCommand("/help").execute(new CommandParameters(this, ""));
-                break;
-            }
+            logger.log(LogState.INFO, String.format("A new user %s has entered the chat.", connName));
+            logger.log(LogState.INFO, String.format("Users in the chat: %d", clientsCount));
+            server.sendMessageAllClients(null, String.format("Приветствуем нового участника чата: %s.", connName));
+            server.sendMessageAllClients(null, String.format("Клиентов в чате: %d", clientsCount));
+            commandContainer.retrieveCommand("/help").execute(new CommandParameters(this, ""));
             while (true) {
                 if (inMessage.hasNext()) {
                     String clientMessage = inMessage.nextLine();
@@ -92,7 +86,7 @@ public class Connection implements Runnable {
         clientsCount--;
         logger.log(LogState.INFO, String.format("User %s has leaved the chat.", connName));
         logger.log(LogState.INFO, String.format("Users in the chat: %d", clientsCount));
-        server.sendMessageAllClients(null,String.format("Участника %s покинул чат.", connName));
+        server.sendMessageAllClients(null, String.format("Участника %s покинул чат.", connName));
         server.sendMessageAllClients(null, String.format("Клиентов в чате: %d", clientsCount));
     }
 

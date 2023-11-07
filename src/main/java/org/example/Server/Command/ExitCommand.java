@@ -1,13 +1,13 @@
 package org.example.Server.Command;
 
 public class ExitCommand implements Command {
-    private String message;
+    private final String message;
 
     public ExitCommand() {
         this.message = "До новых встреч.";
     }
 
     public void execute(CommandParameters parameters) {
-        parameters.getCurConnect().sendMsg(message);
+        parameters.curConnect().sendMsg(message);
     }
 }

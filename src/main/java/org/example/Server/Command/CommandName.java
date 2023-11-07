@@ -8,7 +8,7 @@ public enum CommandName {
     SEND_ALL("/sendall"),
     EXIT("/exit");
 
-    private String commandName;
+    private final String commandName;
 
     CommandName(String commandName) {
         this.commandName = commandName;

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CommandContainer {
-    private Map<String, Command> commandMap;
+    private final Map<String, Command> commandMap;
 
     public CommandContainer() {
         commandMap = new HashMap<>();

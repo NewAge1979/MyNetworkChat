@@ -1,11 +1,9 @@
 package org.example;
 
-import org.example.Logger.Logger;
-import org.example.Logger.LoggerImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ConfigurationTest {
     private Configuration configuration;
